@@ -14,11 +14,9 @@ x1 = zeros(1,N+1);
 y1 = zeros(1,N+1);  
 phi = zeros(1,N+1); 
 
-% IMPORTANTE: Iniciamos el robot sobre la trayectoria para evitar saltos.
 % El punto de inicio en t=0 será x=4, y=0.
 x1(1) = 4;              
 y1(1) = 0;   
-% Lo orientamos a 90 grados (pi/2) para que arranque tangencial a la curva
 phi(1) = pi/2;             
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% PUNTO DE CONTROL %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -32,8 +30,8 @@ u = zeros(1,N);
 w = zeros(1,N); 
 
 % Parámetros de la circunferencia
-R = 4;                     % Radio (sacado de x^2 + y^2 = 16)
-W_ang = (2*pi) / tf;       % Velocidad angular de la trayectoria para cerrar en tf
+R = 4;                     
+W_ang = (2*pi) / tf;       
 
 for k = 1:N
     tk = t(k);
@@ -81,7 +79,6 @@ box on;
 xlabel('x(m)'); ylabel('y(m)'); zlabel('z(m)');
 view([25 25]);
 
-% Ejes ajustados para abarcar el radio de 4 desde el centro (0,0)
 axis([-5 5 -5 5 0 2]); 
 scale = 0.5; 
 
